@@ -1,13 +1,13 @@
-package token.utility.libs.service.blacklist;
+package dev.sharma.akash.tokenutility.libs.util.blacklist;
 
+import dev.sharma.akash.tokenutility.libs.common.Constant;
 import redis.clients.jedis.JedisPooled;
-import token.utility.libs.common.Constant;
 
-public class RedisTokenBlacklistService implements TokenBlacklistService {
+public class RedisTokenBlacklistUtility implements TokenBlacklistUtility {
 
 	private final JedisPooled jedisPooled;
 
-	public RedisTokenBlacklistService(JedisPooled jedisPooled) {
+	public RedisTokenBlacklistUtility(JedisPooled jedisPooled) {
 		this.jedisPooled = jedisPooled;
 	}
 

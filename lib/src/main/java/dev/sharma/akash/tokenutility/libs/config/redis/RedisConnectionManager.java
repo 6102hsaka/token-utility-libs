@@ -1,4 +1,4 @@
-package token.utility.libs.config.redis;
+package dev.sharma.akash.tokenutility.libs.config.redis;
 
 import redis.clients.jedis.ConnectionPoolConfig;
 import redis.clients.jedis.JedisPooled;
