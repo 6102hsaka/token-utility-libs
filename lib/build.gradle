@@ -17,6 +17,9 @@ repositories {
 }
 
 dependencies {
+	// Redis
+	implementation 'redis.clients:jedis:5.1.2'
+	
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
 
