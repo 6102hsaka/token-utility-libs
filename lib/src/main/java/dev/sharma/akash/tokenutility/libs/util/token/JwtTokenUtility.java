@@ -7,7 +7,6 @@ import java.util.function.Function;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
-import dev.sharma.akash.tokenutility.libs.util.blacklist.RedisTokenBlacklistUtility;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -16,12 +15,10 @@ public class JwtTokenUtility implements TokenUtility {
 
 	private final SecretKey secretKey;
 	private final Long expiration;
-	private final RedisTokenBlacklistUtility blacklistUtility;
 
-	public JwtTokenUtility(String secret, Long expiration, RedisTokenBlacklistUtility blacklistUtility) {
+	public JwtTokenUtility(String secret, Long expiration) {
 		this.secretKey = generateSecretKey(secret);
 		this.expiration = expiration;
-		this.blacklistUtility = blacklistUtility;
 	}
 
 	private SecretKey generateSecretKey(String secret) {
@@ -57,7 +54,7 @@ public class JwtTokenUtility implements TokenUtility {
 
 	@Override
 	public boolean isValidToken(String token) {
-		return !isTokenExpired(token) && !blacklistUtility.isTokenBlacklisted(token);
+		return !isTokenExpired(token);
 	}
 
 }
